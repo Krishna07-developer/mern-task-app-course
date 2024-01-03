@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const connectedDb = require("./config/connectedDb");
 const Task = require("./model/taskModel.js")
 const taskRoutes = require("./routes/taskRouter.js")
-
+const cors = require("cors")
 
 
 const app = express();
@@ -12,7 +12,7 @@ const app = express();
 //Middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
-
+app.use(cors())
 
 
 app.get("/" , async (req,res)=>{
